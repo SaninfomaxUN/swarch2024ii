@@ -16,6 +16,7 @@
     <li>
         <b>{{ product.name }}</b> - {{ product.description }}
         <a href="{{ url_for('products.edit_product', product_id=product.id) }}"><p class="icon-sm">✏️️</p></a>
+        <a href="{{ url_for('products.delete_product', product_id=product.id) }}"><p class="icon-sm">🗑️</p></a>
     </li>
     {% endfor %}
 </ul>

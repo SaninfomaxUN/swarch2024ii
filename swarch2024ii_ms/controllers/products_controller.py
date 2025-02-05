@@ -41,6 +41,14 @@ def edit_product(product_id):
     return render_template('edit_product.html', product=product)
 
 
+@product_blueprint.route('/products/<int:product_id>/delete', methods=['GET'])
+def delete_product(product_id):
+    deleted_product = ProductService.delete_product(product_id)
+    if not deleted_product:
+        return jsonify({'error': 'Product not found'}), 404
+    return redirect(url_for('products.index'))
+
+
 @product_blueprint.route('/')
 def index():
     products = ProductService.get_all_products()  # Obtener todos los productos

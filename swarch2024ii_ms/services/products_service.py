@@ -17,3 +17,7 @@ class ProductService:
     @staticmethod
     def get_all_products():
         return ProductRepository.get_all_products()
+
+    @staticmethod
+    def delete_product(product_id):
+        return ProductRepository.delete_product(product_id)

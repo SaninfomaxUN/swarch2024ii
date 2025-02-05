@@ -26,3 +26,12 @@ class ProductRepository:
     @staticmethod
     def get_all_products():
         return Products.query.all()
+
+    @staticmethod
+    def delete_product(product_id):
+        product = ProductRepository.get_product(product_id)
+        if not product:
+            return None
+        db.session.delete(product)
+        db.session.commit()
+        return product
