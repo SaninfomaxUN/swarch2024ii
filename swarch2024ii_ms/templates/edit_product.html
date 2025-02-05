@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+    <title>SWARCH - Editar Producto</title>
+</head>
+<body>
+    <h1>Editar Producto</h1>
+    <form action="{{ url_for('products.update_product', product_id=product.id) }}" method="POST">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required><br>
+        <label for="description">Descripción:</label>
+        <textarea id="description" name="description">{{ product.description }}</textarea><br>
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{{ url_for('products.index') }}"><p class="icon-lg">⬅️</p></a>
+</body>
+</html>

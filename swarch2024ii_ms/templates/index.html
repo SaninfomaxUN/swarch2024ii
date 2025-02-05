@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWARCH - Lista de Productos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
+</head>
+<body>
+<h1>Lista de Productos</h1>
+<br>
+<a href="{{ url_for('products.create_product_form') }}"><p class="icon-sm">Agregar ➕</p></a>
+<br>
+<ul>
+    {% for product in products %}
+    <li>
+        <b>{{ product.name }}</b> - {{ product.description }}
+        <a href="{{ url_for('products.edit_product', product_id=product.id) }}"><p class="icon-sm">✏️️</p></a>
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
